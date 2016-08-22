@@ -84,11 +84,29 @@ filetype on
 " Change <Leader>
 let mapleader = ","
 
+"Ctags
+"set tags=./tags;/
+set cpt-=t "evita che TAB chiami ctag scan e che quindi si sovrapponga all'autocomplete (wildmenu)
+
+set winheight=30
+set winminheight=5
+
 
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set autowrite     " Automatically :write before running commands
 set laststatus=2  " Always shows the status line at the bottom
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=50
+set incsearch     " do incremental searching
+set laststatus=2  " Always display the status line
+set cursorline    " highlight the current line the cursor is on
+"set complete=.,w,b,u,t,i
+"set viminfo=
+set colorcolumn=+1
+set showmatch "flashes matching brackets or parentheses"
+set wildmenu "Enable tab complete. First shows all matches, then starts cycling throught"
+
 
 "set viminfo=
 " Make it obvious where 80 characters is
@@ -105,12 +123,6 @@ set showmatch
 "set expandtab
 
 
-
-" Enable tab complete for commands.
-" first tab shows all matches. next tab starts cycling through the matches
-set wildmenu
-
-
 " Easily spell check
 " http://vimcasts.org/episodes/spell-checking/
 nmap <silent> <leader>s :set spell!<CR>
@@ -124,6 +136,14 @@ autocmd FileType markdown setlocal spell
 
 "clipboard per copiare da vim ed incollare altrove:
 set clipboard=unnamed
+
+augroup vimrcEx
+  autocmd!
+
+  " Allow stylesheets to autocomplete hyphenated words
+  autocmd FileType css,scss,sass setlocal iskeyword+=- 
+augroup END
+
 
 
 " Move between splits
@@ -157,12 +177,14 @@ noremap <Leader>i gg=G
 nnoremap <Tab> <C-W><C-W>
 " numbering
 :set relativenumber
+" Toggle relative line numbers
+let g:NumberToggleTrigger="<leader>r" "without this <C-n>(relative number) will conflict with nerdTree
 
 "colorscheme hybrid
+set background=dark
 colorscheme gruvbox
 "colorscheme dark-atom-256
 "syntax enable
- set background=dark
 "let g:solarized_termcolors=256
 "colorscheme solarized
 "colorscheme lucius
@@ -198,17 +220,49 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
 " UTF-8
 set encoding=utf-8
 " python pep8
-"au BufNewFile,BufRead *.py set tabstop=4
-"au BufNewFile,BufRead *.py set softtabstop=4
-"au BufNewFile,BufRead *.py set shiftwidth=4
-"au BufNewFile,BufRead *.py set textwidth=79
-"au BufNewFile,BufRead *.py set expandtab
-"au BufNewFile,BufRead *.py set autoindent
-"au BufNewFile,BufRead *.py set fileformat=unix
+au BufNewFile,BufRead *.py set tabstop=4
+au BufNewFile,BufRead *.py set softtabstop=4
+au BufNewFile,BufRead *.py set shiftwidth=4
+au BufNewFile,BufRead *.py set textwidth=119
+au BufNewFile,BufRead *.py set expandtab
+au BufNewFile,BufRead *.py set autoindent
+au BufNewFile,BufRead *.py set fileformat=unix
+
+au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
+au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
 
 ""JAVASCRIPT & HTML
 "au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2
 "au BufNewFile,BufRead *.js, *.html, *.css set softtabstop=2
 "au BufNewFile,BufRead *.js, *.html, *.css set shiftwidth=2
 
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
 
+"open vimrc
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+" Pomodoro Thyme
+nmap <leader>T :!thyme -d<cr><cr>
+
+"PYTHON etc
+set foldmethod=indent
+set foldlevel=99
+"Enable folding with the spacebar instead of 'za'
+"set fileformat=unix
+"au BufNewFile, BufRead *.py
+"\ set tabstop=4
+"\ set shiftwidth=4
+"\ set textwidth=79
