@@ -32,7 +32,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-eunuch' "Vim sugar like :Move, :Rename etc
 "Plugin 'tpope/vim-fugitive' "Wrap all Git commang
 Plugin 'tpope/vim-repeat' "Il punto ripete l'ultima azione
-Plugin 'tpope/vim-unimpaired' "pair the [{(
+"Plugin 'tpope/vim-unimpaired' "pair the [{(
 Plugin 'tpope/vim-surround'
 "Plugin 'jtratner/vim-flavored-markdown' "Riconosce MD come ``` ```
 "Plugin 'vim-scripts/ctags.vim'
@@ -57,7 +57,7 @@ Plugin 'rking/ag.vim'
 " Nice status bar
 Plugin 'bling/vim-airline'
 
-" Plugin 'roman/golden-ratio'
+Plugin 'roman/golden-ratio' "auto-reside the windows
 Plugin 'scrooloose/nerdtree'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
@@ -87,9 +87,6 @@ let mapleader = ","
 "Ctags
 "set tags=./tags;/
 set cpt-=t "evita che TAB chiami ctag scan e che quindi si sovrapponga all'autocomplete (wildmenu)
-
-set winheight=30
-set winminheight=5
 
 
 set ruler         " show the cursor position all the time
