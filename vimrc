@@ -138,7 +138,7 @@ augroup vimrcEx
   autocmd!
 
   " Allow stylesheets to autocomplete hyphenated words
-  autocmd FileType css,scss,sass setlocal iskeyword+=- 
+  autocmd FileType css,scss,sass setlocal iskeyword+=-
 augroup END
 
 
@@ -173,7 +173,8 @@ noremap <Leader>i gg=G
 "Move between windows
 nnoremap <Tab> <C-W><C-W>
 " numbering
-:set relativenumber
+set relativenumber
+set number "mi da il numero assuluto della linea in cui sono
 " Toggle relative line numbers
 let g:NumberToggleTrigger="<leader>r" "without this <C-n>(relative number) will conflict with nerdTree
 
