@@ -34,6 +34,7 @@ function dev(){
 	brew install python3
 	brew install node
 	brew install vim
+	brew install tmux
 	brew install redis
 	brew install curl
 	/curl -L https://get.rvm.io | bash -s stable
@@ -99,4 +100,17 @@ function jstest(){
 	npm install -g grunt-cli
 	npm install -g karma-cli
 	npm install -g protractor
+}
+
+function setvim(){
+	git clone git@github.com:Mattia46/.vim.git
+	ln -s ~/.vim/vimrc ~/.vimrc
+	ln -s ~/.vim/zshrc ~/.zshrc
+	ln -s ~/.vim/tmux.conf ~/.tmux.conf
+	ln -s ~/.vim/vimwiki ~/vimwiki
+	ln -s ~/.vim/.agignore ~/.agignore
+	ln -s ~/.vim/.gitignore ~/.gitignore
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	vim+PluginInstall
+	echo 'vim setted'
 }

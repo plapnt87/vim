@@ -24,6 +24,13 @@ source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 . `brew --prefix`/etc/profile.d/z.sh
 
 alias crypt='openssl enc -aes-256-cbc -e -in /Users/polipetta/Documents/Codici.xlsx -out ~/Desktop/codici.xlsx'
-alias codici="openssl enc -aes-256-cbc -d -in /Users/polipetta/Documents/Codici -out ~/Desktop/codici.xlsx; rm ~/Documents/Codici"
-alias nocodici='openssl enc -aes-256-cbc -e -in ~/Desktop/Codici.xlsx -out ~/Documents/Codici; rm ~/Desktop/Codici.xlsx'
+alias codici="openssl enc -aes-256-cbc -d -in /Users/polipetta/Documents/Codici -out ~/Desktop/codici.xlsx"
+alias nocodici='openssl enc -aes-256-cbc -e -in ~/Desktop/Codici.xlsx -out ~/Documents/Codici'
 alias decrypt='openssl enc -aes-256-cbc -d -in'
+
+# TMUX
+alias tmls='tmux ls'
+alias tmat='tmux attach -t'
+alias tmn='tmux new-session -s'
+alias tmclose='tmux detach' # detach the current session leaving it open
+alias tmkill='tmux kill-session -t'

@@ -217,6 +217,10 @@ set backspace=2   " Backspace deletes like most programs in insert mode
 set nowritebackup
 
 nnoremap <space> za
+
+"let g:ctrlp_custom_ignore = 'node_modules\'
+"let g:ctrlp_custom_ignore = { 'dir':  '\v[\/](doc|tmp|node_modules)', }
+
 "XCODE THEME
 " Airline theme
 "'let g:airline_theme = 'edocx"
