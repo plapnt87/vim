@@ -16,6 +16,8 @@ function init(){
 	echo 'utility'
 	echo 'personal'
 	echo 'setup'
+	echo 'jstest'
+	echo 'setvim'
 	echo 'brew cask list: '
 	brew cask list
 }
