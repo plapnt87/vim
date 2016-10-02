@@ -102,6 +102,8 @@ function jstest(){
 	npm install -g grunt-cli
 	npm install -g karma-cli
 	npm install -g protractor
+	npm install -g phantomjs-prebuild
+	npm install -g http-server
 }
 
 function setvim(){
