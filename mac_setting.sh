@@ -48,6 +48,7 @@ function dev(){
 	brew cask install heroku-toolbelt
 	brew cask list
 	brew install the_silver_searcher
+	pip install ipython
 }
 
 function utility(){

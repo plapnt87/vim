@@ -16,6 +16,7 @@ alias runserver='./manage.py runserver 0.0.0.0:8000'
 alias migrateserver='./manage.py makemigrations ; ./manage.py migrate ; ./manage.py runserver 0.0.0.0:8000'
 alias pipmigrateserver='pip install -R requirements/common.txt ; ./manage.py makemigrations ; ./manage.py migrate ; ./manage.py runserver 0.0.0.0:8000'
 alias ws3='source ~/Development/envs/ws3/bin/activate'
+alias ws4='source ~/ws3/bin/activate'
 
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
