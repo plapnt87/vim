@@ -44,6 +44,11 @@ Plugin 'vim-scripts/vimball'
 Plugin 'vim-scripts/Align'
 Plugin 'vim-scripts/AutoAlign'
 
+"HTML
+Plugin 'mattn/emmet-vim'
+Plugin 'alvan/vim-closetag'
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+
 " Snipmate
 "Plugin 'MarcWeber/vim-addon-mw-utils'
 "Plugin 'tomtom/tlib_vim'
