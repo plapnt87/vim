@@ -47,7 +47,12 @@ Plugin 'vim-scripts/AutoAlign'
 "HTML
 Plugin 'mattn/emmet-vim'
 Plugin 'alvan/vim-closetag'
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+"let g:closetag_html_style=1
+
+"REACT
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'jelera/vim-javascript-syntax'
 
 " Snipmate
 "Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -147,6 +152,8 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 "END SEARCH
 
+"EMMET LUNCH COMMAND
+imap hh <C-y>,
 
 
 
@@ -298,3 +305,6 @@ set foldlevel=99
 "\ set tabstop=4
 "\ set shiftwidth=4
 "\ set textwidth=79
+
+"NEW STUFF FROM A VIDEO TALK
+set path+=**
