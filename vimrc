@@ -106,6 +106,7 @@ set laststatus=2  " Always shows the status line at the bottom
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set history=50
 set incsearch     " do incremental searching
+set hlsearch      " higthlits text when try to search - nohl to remove the hightlits
 set laststatus=2  " Always display the status line
 set cursorline    " highlight the current line the cursor is on
 "set complete=.,w,b,u,t,i
@@ -124,10 +125,11 @@ set textwidth=80
 set showmatch
 
 " Softtabs, 2 spaces
-"set tabstop=2
-"set shiftwidth=2
-"set shiftround
-"set expandtab
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 "SEARCH (using AG instead of Grep)
 let g:ackprg = 'ag --vimgrep' "After installing 'brew install the_silver_searcher', this line make it works
@@ -201,7 +203,7 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 noremap <Leader>i gg=G
 
 " Autoformat
-"map <Leader>f :Autoformat<CR>
+map <Leader>f :Autoformat<CR>
 
 " such very magic
 :nnoremap / /\v
@@ -218,6 +220,8 @@ let g:NumberToggleTrigger="<leader>r" "without this <C-n>(relative number) will 
 "colorscheme hybrid
 set background=dark
 colorscheme gruvbox
+"colorscheme zazen
+"colorscheme spacegray
 "colorscheme dark-atom-256
 "syntax enable
 "let g:solarized_termcolors=256
