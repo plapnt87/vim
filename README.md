@@ -1,7 +1,7 @@
 # vimdotfile
 
 ```
-$ git clone git@github.com:Mattia46/.vim.git
+$ git clone https://github.com/plapnt87/vim.git
 $ ln -s ~/.vim/vimrc ~/.vimrc
 $ ln -s ~/.vim/zshrc ~/.zshrc
 $ ln -s ~/.vim/tmux.conf ~/.tmux.conf
